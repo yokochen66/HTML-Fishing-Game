@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钓鱼小游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <div>金币: <span id="gold-display">0</span></div>
+            <div>功德: <span id="merit-display">0</span></div>
+            <div>背包: <span id="bag-capacity-display">0/20</span></div>
+        </header>
+
+        <main class="game-main">
+            <div class="fishing-area">
+                <div id="water-container">
+                    <div id="float-bobber" class="idle"></div>
+                </div>
+                <img src="placeholder_fisherman.png" alt="钓鱼人" id="fisherman-img">
+                <p id="fishing-status-text">准备钓鱼</p>
+            </div>
+            <div class="controls">
+                <button id="fishing-button">下杆</button>
+                <div class="bait-selection">
+                    <label for="bait-select">选择鱼饵:</label>
+                    <select id="bait-select">
+                        <!-- 鱼饵选项将由JS动态填充 -->
+                    </select>
+                    <span>剩余: <span id="selected-bait-count">0</span></span>
+                </div>
+            </div>
+        </main>
+
+        <aside class="game-sidebar">
+            <div class="sidebar-section" id="bag-section">
+                <h3>背包 (<span id="bag-current-items">0</span>/<span id="bag-max-capacity">20</span>)</h3>
+                <ul id="bag-item-list">
+                    <!-- 背包物品将由JS动态填充 -->
+                </ul>
+                <button id="upgrade-bag-button">扩容背包 (50金)</button>
+            </div>
+
+            <div class="sidebar-section" id="shop-section">
+                <h3>商店</h3>
+                <ul id="shop-item-list">
+                    <!-- 商店物品将由JS动态填充 -->
+                </ul>
+            </div>
+             <div class="sidebar-section" id="merit-info-section">
+                <h3>功德系统</h3>
+                <p>当前功德: <span id="merit-points-display">0</span></p>
+                <p>成就: <span id="achievements-display">暂无</span></p>
+            </div>
+        </aside>
+
+        <footer>
+            <div id="game-log">游戏日志将会显示在这里...</div>
+        </footer>
+    </div>
+
+    <!-- 添加互动钓鱼弹窗 -->
+    <div id="fishing-minigame" class="modal">
+        <div class="modal-content">
+            <h2>拉鱼互动</h2>
+            <div class="fish-struggle-meter">
+                <div id="fish-position"></div>
+                <div id="catch-zone"></div>
+            </div>
+            <div class="fish-info">
+                <p>鱼儿在挣扎！保持指示器在绿色区域内！</p>
+                <p>剩余时间: <span id="remaining-time">10</span>秒</p>
+            </div>
+            <button id="reel-button">收线</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
